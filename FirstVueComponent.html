@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .is-loading {
+            --size: 24px;
+            --stroke-width: calc(var(--size) / 6);
+            --color: currentColor;
+            --animation-timing-function: linear;
+            --animation-duration: 1s;
+            width: var(--size);
+            height: var(--size);
+            border-width: var(--stroke-width);
+            border-style: solid;
+            border-color: var(--color) var(--color) var(--color) transparent;
+            border-radius: 50%;
+            transform: rotate(0deg);
+            animation: var(--animation-timing-function) var(--animation-duration) infinite circle-spin-1-animation;
+        }
+
+        @keyframes circle-spin-1-animation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="h-full grid place-items-center">
+    <div id="app">
+        <app-button :processing="true">Submit</app-button>
+    </div>
+
+    <script type="module">
+        import App from "./js/components/App.js";
+
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+</html>
